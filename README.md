@@ -9,6 +9,43 @@
 - **CloudFront**: Distributes content globally with caching for faster load times and lower latency.
 - **S3**: Stores and hosts the React application.
 
+### Create a simple React App
+
+- ```npx create-react-app demo-react-s3```
+- ```cd demo-react-s3```
+- ```npm start```
+   - ![react-app](react-app.png)
+
+- ```npm run build``` # Creates an optimized production build   
+
+### Create a S3 Bucket
+
+- Create a S3 Bucket (i.e named test-s3-bucket-05112024)
+
+- Change the bucket policy
+- 
+```
+{
+  "Id": "Policy1730803447999",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1730803444466",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::test-s3-bucket-05112024/*",
+      "Principal": "*"
+    }
+  ]
+}
+```
+   - ![bucket-policy](bucket-policy.png)
+
+- Enable Static Web site hosting on the S3 bucket
+   - ![enable-static-web-site](enable-static-web-site.png)
 ### References
 
 1. [How to deploy React App on AWS S3 - Amazon Route 53 - Amazon CloudFront](https://www.youtube.com/watch?v=-rCDLzTNcn8)
